@@ -78,8 +78,20 @@ class Git implements GitContract
         return $this;
     }
 
-    public function pull(array $options = []): GitContract
+    public function pull(string $remote = null, string $branch = null, array $options = []): GitContract
     {
+        $command = 'pull';
+
+        if ($remote) {
+            $command .= " {$remote}";
+        }
+
+        if ($branch) {
+            $command .= " {$branch}";
+        }
+
+        $this->execute($command, $options);
+
         return $this;
     }
 

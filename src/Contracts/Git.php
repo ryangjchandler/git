@@ -14,7 +14,7 @@ interface Git
 
     public function push(string $remote = null, string $branch = null, array $options = []): Git;
 
-    public function pull(array $options = []): Git;
+    public function pull(string $remote = null, string $branch = null, array $options = []): Git;
 
     public function root(string $path = null): Git;
 }
