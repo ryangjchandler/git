@@ -107,4 +107,20 @@ class GitTest extends TestCase
 
         Terminal::assertExecuted('/usr/bin/git push --force');
     }
+
+    public function test_git_fetch()
+    {
+        Git::open()->fetch();
+
+        Terminal::assertExecuted('/usr/bin/git fetch');
+    }
+
+    public function test_git_fetch_with_options()
+    {
+        Git::open()->fetch([
+            '--prune',
+        ]);
+
+        Terminal::assertExecuted('/usr/bin/git fetch --prune');
+    }
 }

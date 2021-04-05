@@ -61,6 +61,13 @@ class Git implements GitContract
         return $this;
     }
 
+    public function fetch(array $options = []): GitContract
+    {
+        $this->execute('fetch', $options);
+
+        return $this;
+    }
+
     public function push(string $remote = null, string $branch = null, array $options = []): GitContract
     {
         $command = 'push';
