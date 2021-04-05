@@ -1,0 +1,37 @@
+{
+    "name": "ryangjchandler/git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Chandler",
+            "email": "support@ryangjchandler.co.uk",
+            "homepage": "https://ryangjchandler.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RyanChandler\\Git\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RyanChandler\\Git\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "titasgailius/terminal": "^1.0"
+    },
+    "require-dev": {
+        "ryangjchandler/puny": "^0.3.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/puny"
+    }
+}
