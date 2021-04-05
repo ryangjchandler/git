@@ -23,7 +23,8 @@
         "titasgailius/terminal": "^1.0"
     },
     "require-dev": {
-        "ryangjchandler/puny": "^0.3.1"
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^5.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -32,6 +33,6 @@
         "sort-packages": true
     },
     "scripts": {
-        "test": "vendor/bin/puny"
+        "test": "vendor/bin/phpunit --colors=always"
     }
 }

@@ -45,8 +45,8 @@ class Git implements GitContract
     {
         $command = "commit -m '{$message}'";
 
-        if (isset($this->author['name'], $this->author['email'])) {
-            $options['--author'] = "{$this->author['name']} <{$this->author['email']}";
+        if ($this->author['name'] && $this->author['email']) {
+            $options['--author'] = "'{$this->author['name']} <{$this->author['email']}>'";
         }
 
         $this->execute($command, $options);
@@ -123,7 +123,7 @@ class Git implements GitContract
             }, array_keys($options), $options))
         ]);
 
-        $response = $terminal->run($string);
+        $response = $terminal->run(trim($string));
 
         $response->throw();
 
