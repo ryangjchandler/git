@@ -14,6 +14,8 @@ interface Git
 
     public function fetch(array $options = []): Git;
 
+    public function checkout($paths, array $options = []): Git;
+
     public function push(string $remote = null, string $branch = null, array $options = []): Git;
 
     public function pull(string $remote = null, string $branch = null, array $options = []): Git;

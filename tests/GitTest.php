@@ -123,4 +123,20 @@ class GitTest extends TestCase
 
         Terminal::assertExecuted('/usr/bin/git fetch --prune');
     }
+
+    public function test_git_checkout()
+    {
+        Git::open()->checkout('main');
+
+        Terminal::assertExecuted('/usr/bin/git checkout main');
+    }
+
+    public function test_git_checkout_with_options()
+    {
+        Git::open()->checkout('main', [
+            '-m'
+        ]);
+
+        Terminal::assertExecuted('/usr/bin/git checkout main -m');
+    }
 }

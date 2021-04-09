@@ -68,6 +68,19 @@ class Git implements GitContract
         return $this;
     }
 
+    public function checkout($paths, array $options = []): GitContract
+    {
+        if (! is_array($paths)) {
+            $paths = [$paths];
+        }
+
+        $command = trim('checkout '.implode(' ', $paths));
+
+        $this->execute($command, $options);
+
+        return $this;
+    }
+
     public function push(string $remote = null, string $branch = null, array $options = []): GitContract
     {
         $command = 'push';
