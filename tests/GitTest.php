@@ -139,4 +139,18 @@ class GitTest extends TestCase
 
         Terminal::assertExecuted('/usr/bin/git checkout main -m');
     }
+
+    public function test_git_status()
+    {
+        Git::open()->status();
+
+        Terminal::assertExecuted('/usr/bin/git status');
+    }
+
+    public function test_git_status_with_options()
+    {
+        Git::open()->status(['-s']);
+
+        Terminal::assertExecuted('/usr/bin/git status -s');
+    }
 }

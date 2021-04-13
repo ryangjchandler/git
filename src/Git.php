@@ -122,12 +122,26 @@ class Git implements GitContract
         return $this;
     }
 
+    public function status(array $options = []): string
+    {
+        [$_, $output] = $this->execute('status', $options);
+
+        return $output;
+    }
+
+    public function hasChanges(): bool
+    {
+        $status = $this->status(['-s']);
+
+        return ! empty($status);
+    }
+
     public static function open(string $path = null)
     {
         return (new static)->root($path);
     }
 
-    protected function execute(string $command, array $options = []): bool
+    protected function execute(string $command, array $options = []): array
     {
         $terminal = Terminal::builder()
             ->in($this->root)
@@ -147,6 +161,6 @@ class Git implements GitContract
 
         $response->throw();
 
-        return $response->ok();
+        return [$response->ok(), $response->output()];
     }
 }

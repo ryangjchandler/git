@@ -21,4 +21,6 @@ interface Git
     public function pull(string $remote = null, string $branch = null, array $options = []): Git;
 
     public function root(string $path = null): Git;
+
+    public function status(array $options = []): string;
 }
