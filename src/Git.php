@@ -141,7 +141,7 @@ class Git implements GitContract
         return (new static)->root($path);
     }
 
-    protected function execute(string $command, array $options = []): array
+    public function execute(string $command, array $options = []): array
     {
         $terminal = Terminal::builder()
             ->in($this->root)
